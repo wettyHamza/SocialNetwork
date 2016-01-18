@@ -12,9 +12,9 @@
 		<link rel="stylesheet" href="style/loader.css">
 		<link rel="stylesheet" href="style/idangerous.swiper.css">
 		<link rel="stylesheet" href="style/stylesheet.css">
-		<!--[if lt IE 10125]>
+		<!--[if lt IE 10]>
 			<link rel="stylesheet" type="text/css" href="style/ie-9.css" />
-		<![endif]-->		
+		<![endif]hhh-->
 		<!--[if lt IE 9]>
 		    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -245,12 +245,12 @@
 							<i class="fa fa-times close-button"></i>
 							<h5 class="large-popup-title">Log in</h5>
 						</div>
-						<form action="./" class="popup-input-search">
+						<form action="login.php" method="post" class="popup-input-search">
 						<div class="col-md-6">
-							<input class="input-signtype" type="email" required="" placeholder="Your email">
+							<input name="mail_log" class="input-signtype" type="email" required="" placeholder="Your email">
 						</div>
 						<div class="col-md-6">
-							<input class="input-signtype" type="password" required="" placeholder="Password">
+							<input name="pswd_log" class="input-signtype" type="password" required="" placeholder="Password">
 						</div>
 						<div class="col-xs-6">
 							<div class="be-checkbox">
@@ -283,32 +283,32 @@
 							<i class="fa fa-times close-button"></i>
 							<h5 class="large-popup-title">Register</h5>
 						</div>
-						<form action="./" name="form" class="popup-input-search">
+						<form action="register.php" method="post" name="form" class="popup-input-search">
 						<div class="col-md-6">
-							<input class="input-signtype" type="text" required="" placeholder="First Name">
+							<input class="input-signtype" type="text" required="" placeholder="First Name" name='first_name'>
 						</div>
 						<div class="col-md-6">
-							<input class="input-signtype" type="text" required="" placeholder="Last Name">
+							<input class="input-signtype" type="text" required="" placeholder="Last Name" name="last_name">
 						</div>
 						<div class="col-md-6">
 							<div class="be-custom-select-block">
-							<select id="selEntr" onchange="hide()" class="be-custom-select" required>
+							<select id="selEntr" name="statu" onchange="hide()" class="be-custom-select" required>
 								<option value="" disabled selected>
 									I am
 								</option>
-								<option value="">User</option>
-								<option value="">Developer</option>
+								<option value="User">User</option>
+								<option value="Developer">Developer</option>
 								<option  value="Enterprise">Enterprise</option>
 							</select>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<input id="mail" class="input-signtype" type="text" required="" placeholder="Email"
+							<input id="mail" name="mail" class="input-signtype" type="text" required="" placeholder="Email"
 								   pattern="^[a-zA-Z0-9\-_]+(\.[a-zA-Z0-9\-_]+)*@[a-z0-9]+(\-[a-z0-9]+)*(\.[a-z0-9]+(\-[a-z0-9]+)*)*\.[a-z]{2,4}$">
 						</div>
 
 						<div class="col-md-6">
-							<input id="pass1" class="input-signtype" type="text" required="" placeholder="Password">
+							<input id="pass1" name="pswd" class="input-signtype" type="text" required="" placeholder="Password">
 						</div>
 						<div class="col-md-6">
 							<input id="pass2" class="input-signtype" type="text" required="" placeholder="Repeat Password" onkeyup="checkPass()">
@@ -318,80 +318,80 @@
 								Date of birth
 							</span>
 							<div class="be-custom-select-block mounth">
-								<select id="month" class="be-custom-select" required>
+								<select id="month" name="month" class="be-custom-select" required>
 									<option value="" disabled selected>
-										Mounth
+										Month
 									</option>
-									<option value="">January</option>	
-									<option value="">February</option>	
-									<option value="">March</option>	
-									<option value="">April</option>	
-									<option value="">May</option>	
-									<option value="">June</option>	
-									<option value="">July</option>	
-									<option value="">August</option>	
-									<option value="">September</option>	
-									<option value="">October</option>	
-									<option value="">November</option>	
-									<option value="">December</option>
+									<option value="January">January</option>
+									<option value="February">February</option>
+									<option value="March">March</option>
+									<option value="April">April</option>
+									<option value="May">May</option>
+									<option value="June">June</option>
+									<option value="July">July</option>
+									<option value="August">August</option>
+									<option value="September">September</option>
+									<option value="October">October</option>
+									<option value="November">November</option>
+									<option value="December">December</option>
 								</select>
 							</div>
 							<div class="be-custom-select-block">
-								<select id="day" class="be-custom-select" required>
+								<select id="day" name="day" class="be-custom-select" required>
 									<option value="" disabled selected>
 										Day
 									</option>
-									<option value="">1</option>
-									<option value="">2</option>
-									<option value="">3</option>
-									<option value="">4</option>
-									<option value="">5</option>
-									<option value="">6</option>
-									<option value="">7</option>
-									<option value="">8</option>
-									<option value="">9</option>
-									<option value="">10</option>
-									<option value="">11</option>
-									<option value="">12</option>
-									<option value="">13</option>
-									<option value="">14</option>
-									<option value="">15</option>
-									<option value="">16</option>
-									<option value="">17</option>
-									<option value="">18</option>
-									<option value="">19</option>
-									<option value="">20</option>
-									<option value="">21</option>
-									<option value="">22</option>
-									<option value="">23</option>
-									<option value="">24</option>
-									<option value="">25</option>
-									<option value="">26</option>
-									<option value="">27</option>
-									<option value="">28</option>
-									<option value="">29</option>
-									<option value="">30</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+									<option value="25">25</option>
+									<option value="26">26</option>
+									<option value="27">27</option>
+									<option value="28">28</option>
+									<option value="29">29</option>
+									<option value="30">30</option>
 								</select>
 							</div>
 							<div class="be-custom-select-block">
-								<select id="year" class="be-custom-select" required>
+								<select id="year" name="year" class="be-custom-select" required>
 									<option value="" disabled selected>
 										Year
 									</option>
-									<option value="">1996</option>
-									<option value="">1997</option>
-									<option value="">1998</option>
-									<option value="">1998</option>
-									<option value="">1998</option>
-									<option value="">1998</option>
-									<option value="">1998</option>
-									<option value="">1998</option>
-									<option value="">1998</option>
-									<option value="">1998</option>
-									<option value="">1998</option>
-									<option value="">1998</option>
-									<option value="">1998</option>
-									<option value="">1998</option>
+									<option value="1996">1996</option>
+									<option value="1995">1995</option>
+									<option value="1994">1992</option>
+									<option value="1991">1991</option>
+									<option value="1990">1990</option>
+									<option value="1989">1989</option>
+									<option value="1988">1988</option>
+									<option value="1987">1987</option>
+									<option value="1986">1986</option>
+									<option value="1985">1985</option>
+									<option value="1984">1984</option>
+									<option value="1983">1983</option>
+									<option value="1982">1982</option>
+									<option value="1981">1981</option>
 								</select>
 							</div>
 						</div>
