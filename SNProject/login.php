@@ -12,35 +12,17 @@ catch(Exception $e)
 $mail_log=htmlspecialchars($_POST['mail_log']);
 $pswd_log=htmlspecialchars($_POST['pswd_log']);
 
-/*$req = $bdd->prepare('SELECT membre_pswd,membre_first_name FROM membre_signup WHERE membre_pswd=?');
-$req->execute(array($_GET['membre_pswd']));
+$req = $bdd->prepare('SELECT * FROM membre_signup where membre_mail=?');
+$req->execute(array($mail_log));
+$donnees=$req->fetch();
 
-//$reponse = $bdd->query('SELECT membre_pswd FROM membre_signup WHERE membre_pswd=\'.$pswd_log\'');
-
-while ($donnees = $req->fetch())
+if(($donnees['membre_mail']!=$mail_log)||($donnees['membre_pswd']!=$pswd_log))
 {
-	echo $donnees['membre_pswd'];
+echo' <script> alert("fauux"); window.location.replace("index.html");</script>';
+}
+else
+{
+header('Location:chat.html');
 }
 
-$reponse->closeCursor();
-*/
-
-$stmt = $bdd->prepare("SELECT password, salt FROM customer WHERE login = ?");
-$stmt->bind_param("s", $pswd_log);
-$stmt->execute();
-$stmt->bind_result($password_hash, $salt);
-
-while ($stmt->fetch()) {
-  $input_password_hash = hash('sha256', $input_password . $salt);
-  if ($input_password_hash == $password_hash) {
-    return true;
-  }
-  // You may want to log failed password attempts here,
-  // for security auditing or to lock an account with
-  // too many attempts within a short time.
-}
-$stmt->close();
-
-// No rows matched $input_login, or else password did not match
-return false;
 ?>
