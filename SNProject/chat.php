@@ -11,7 +11,7 @@
     <title>BOOTSTRAP CHAT EXAMPLE</title>
     <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <script type="text\javascript" src="ajaxonline.js"></script>
+    <script type="text/javascript" src="ajaxonline.js"></script>
 
 </head>
 <?php
@@ -136,14 +136,14 @@ include('online.php');
             </div>
         </div>
     </div>
-    <div id ="online_user" class="col-md-4">
+    <div  class="col-md-4">
           <div class="panel panel-primary">
             <div class="panel-heading">
                ONLINE USERS
             </div>
             <div class="panel-body">
 
-                <ul class="media-list">
+                <ul id="tagul" class="media-list">
                         <?php
                         try
                         {
@@ -166,7 +166,7 @@ include('online.php');
                                           echo  '<div class="media">';
                                                echo' <div class="media-body" >';
                                                   echo'  <a href="#" style="text-decoration: none">';
-                                                    echo'<h5 >'.$row["membre_fname"].'</h5>';
+                                                    echo'<h5 id="online_user">'.$row["membre_fname"].'</h5>';
                                                     
                                                   echo' <small class="text-muted"></small>';
 
@@ -185,9 +185,8 @@ include('online.php');
     </div>
 </div>
 <span class="input-group-btn">
-
-    <button class="btn btn-info" style="margin-left:90%" onclick="change()">Reload</button>
-   </span>
+    <button class="btn btn-info" style="margin-left:90%" onClick="change()">Reload</button>
+ </span>
   </div>
 </body>
 </html>

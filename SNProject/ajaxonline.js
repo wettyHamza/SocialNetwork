@@ -21,15 +21,19 @@ function change() {
     var xhr = getXhr();
 // On défini ce qu'on va faire quand on aura la réponse
     xhr.onreadystatechange = function () {
-        alert(xhr.readyState);
+       // alert(xhr.readyState);
 // On ne fait quelque chose que si on a tout reçu et que le serveur est ok
         if (xhr.readyState == 4 && xhr.status == 200) {
-            di = document.getElementById('online_user');
-            di.innerHTML = xhr.responseText;
+            var tmp=document.createElement("li");
+          var di=  document.getElementById('tagul').appendChild(tmp);
+            //var d=document.getElementById('online_user')
+             di.innerHTML ='ttt'+xhr.response+'  ffff';
+
+
         }
     }
-   /* xhr.open("POST", "online.php", true);
+   xhr.open("POST", "online.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    xhr.send("idAuteur=" + idauteur);*/
+    xhr.send(null);
 }
