@@ -22,7 +22,13 @@ echo' <script> alert("fauux"); window.location.replace("index.html");</script>';
 }
 else
 {
-header('Location:chat.html');
+header('Location:chat.php');
+session_start();
+$_SESSION['fname']=$donnees['membre_first_name'];
+$_SESSION['lname']=$donnees['membre_last_name'];
+$_SESSION['time']=time();
+
+
 }
 
 ?>
