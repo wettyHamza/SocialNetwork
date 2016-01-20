@@ -27,13 +27,16 @@ function change() {
             var tmp=document.createElement("li");
           var di=  document.getElementById('tagul').appendChild(tmp);
             //var d=document.getElementById('online_user')
-             di.innerHTML ='ttt'+xhr.response+'  ffff';
+             di.innerHTML =+xhr.responseText;
+
 
 
         }
     }
-   xhr.open("POST", "online.php", true);
+   xhr.open("POST", "online2.php", true);
+    xhr.send();
+
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    xhr.send(null);
+    xhr.send();
 }

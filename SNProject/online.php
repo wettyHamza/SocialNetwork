@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 try
 {
@@ -32,6 +33,7 @@ array(
 'timecnx'=>$time)
 );
 }
+
 
 
 ?>
