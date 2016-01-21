@@ -27,6 +27,7 @@ session_start();
 $_SESSION['fname']=$donnees['membre_first_name'];
 $_SESSION['lname']=$donnees['membre_last_name'];
 $_SESSION['time']=time();
+$_SESSION['membre_id']=$donnees['membre_id'];
 
 
 }

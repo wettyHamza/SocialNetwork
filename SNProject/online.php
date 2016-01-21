@@ -10,24 +10,21 @@ catch(Exception $e)
 {
         die('Erreur : '.$e->getMessage());
 }
-
+$id=$_SESSION['membre_id'];
 $fname=$_SESSION['fname'];
 $lname=$_SESSION['lname'];
 $time=$_SESSION['time'];
 $exist=false;
-$req=$bdd->prepare('INSERT INTO membre_online(membre_fname,membre_lname,timecnx) VALUES (:membre_fname, :membre_lname, :timecnx)');
-$req2=$bdd->query('select * from membre_online');
-while($donnes=$req2->fetch())
-{
-if($donnes['membre_fname']==$fname)
-$exist=true;
-else
-$exist=false;
-}
-if ($exist==false)
-{
+$req=$bdd->prepare('INSERT INTO membre_online(id, membre_fname,membre_lname,timecnx) VALUES (:id, :membre_fname, :membre_lname, :timecnx)');
+$req2=$bdd->prepare('select * from membre_online where id=?');
+$req2->execute(array($id));
+$count=$req2->rowCount();
+$donnes=$req2->fetch();
+if($count==0){
+
 $req->execute(
 array(
+'id'=>$id,
 'membre_fname'=>$fname,
 'membre_lname'=>$lname,
 'timecnx'=>$time)

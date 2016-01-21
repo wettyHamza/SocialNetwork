@@ -9,10 +9,9 @@ catch(Exception $e)
 {
         die('Erreur : '.$e->getMessage());
 }
-
-
-
-                        $req=$bdd->query('SELECT * FROM membre_online');
+$tmpreload=time()-20;
+                        $req=$bdd->prepare('SELECT * FROM membre_online where timecnx > ?');
+                        $req->execute(array($tmpreload) );
 
                         while($row=$req->fetch())
                         {

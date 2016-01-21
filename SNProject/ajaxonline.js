@@ -17,26 +17,28 @@ function getXhr() {
     }
     return xhr;
 }
-function change() {
-    var xhr = getXhr();
+
+setInterval(
+        function change() {
+            var xhr = getXhr();
 // On défini ce qu'on va faire quand on aura la réponse
-    xhr.onreadystatechange = function () {
-       // alert(xhr.readyState);
+            xhr.onreadystatechange = function () {
+                // alert(xhr.readyState);
 // On ne fait quelque chose que si on a tout reçu et que le serveur est ok
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var tmp=document.createElement("li");
-          var di=  document.getElementById('tagul').appendChild(tmp);
-            //var d=document.getElementById('online_user')
-             di.innerHTML =+xhr.responseText;
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var tmp = document.createElement("li");
+                    var di = document.getElementById('tagul').appendChild(tmp);
+                    //var d=document.getElementById('online_user')
+                    di.innerHTML = xhr.responseText;
 
 
+                }
+            }
+            xhr.open("POST", "online2.php", true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-        }
-    }
-   xhr.open("POST", "online2.php", true);
-    xhr.send();
+            xhr.send(null);
 
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        },20000);
 
-    xhr.send();
-}
+

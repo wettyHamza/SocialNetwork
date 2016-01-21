@@ -12,6 +12,7 @@
     <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <script type="text/javascript" src="ajaxonline.js"></script>
+    <script type="text/javascript" src="ajaxwinclosed.js"></script>
 
 </head>
 <?php
@@ -185,8 +186,11 @@ include('online.php');
     </div>
 </div>
 <span class="input-group-btn">
-    <button class="btn btn-info" style="margin-left:90%" onClick="change()">Reload</button>
+    <button class="btn btn-info" style="margin-left:90%">Reload</button>
  </span>
   </div>
+
+  <script type="text/javascript"> window.onunload=close; </script>
+
 </body>
 </html>
