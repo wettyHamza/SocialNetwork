@@ -9,10 +9,17 @@ catch(Exception $e)
 {
         die('Erreur : '.$e->getMessage());
 }
-$req=$bdd->prepare('delete from membre_online where membre_fname=:fname');
-$req->bindParam(':fname', $_SESSION['fname'], PDO::ATTR_DRIVER_NAME);
-$req->execute();
-echo 'dhh';
+$statu=0;
+$id=$_SESSION['membre_id'];
+$fname=$_SESSION['fname'];
+$lname=$_SESSION['lname'];
+$time=$_SESSION['time'];
+$req=$bdd->prepare('update  membre_online SET statu= :statu where id= :id');
+$req->execute(array('statu'=>$statu,
+'id'=>$id
+));
+
+echo 'dhhhhhjjiiipppp';
 unset($_SESSION['fname']);
 unset($_SESSION['lname']);
 unset($_SESSION['time']);

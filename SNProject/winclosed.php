@@ -12,7 +12,10 @@ catch(Exception $e)
 {
         die('Erreur : '.$e->getMessage());
 }
-$req=$bdd->prepare('delete from membre_online where id=?');
-$req->execute(array($id));
-session_destroy();
+$statu=0;
+$req=$bdd->prepare('update  membre_online set statu= :statu where id= :id');
+$req->execute(array('statu'=>$statu,
+'id'=>$id
+));
+//session_destroy();
 ?>

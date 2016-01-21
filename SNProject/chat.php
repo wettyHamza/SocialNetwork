@@ -27,7 +27,7 @@ include('online.php');
     <button class="btn btn-info" type="submit" style="margin-left:90%">Logout</button>
     </form>
    </span>
-    <h3 class="text-center" >want to hangout! </h3>
+    <h3 class="text-center" >want to hangout! <?php echo $_SESSION['fname'];?></h3>
     <br /><br />
     <div class="col-md-8">
         <div class="panel panel-info">
@@ -146,6 +146,7 @@ include('online.php');
 
                 <ul id="tagul" class="media-list">
                         <?php
+
                         try
                         {
                         	$bdd = new PDO('mysql:host=localhost;dbname=sn;charset=utf8', 'root', '');
@@ -155,9 +156,12 @@ include('online.php');
                         {
                                 die('Erreur : '.$e->getMessage());
                         }
-
-                        $req=$bdd->query('SELECT * FROM membre_online');
-
+                        $statu=1;
+                        $id=$_SESSION['membre_id'];
+                        $req=$bdd->prepare('SELECT * FROM membre_online where statu= :statu and id <> :id');
+                        $req->execute(array('statu'=>$statu,
+                        'id'=>$id
+                        ));
                         while($row=$req->fetch())
                         {
 

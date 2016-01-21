@@ -21,18 +21,17 @@ function getXhr() {
 
     function close() {
         var xhr = getXhr();
-alert('dsjhf');
 
         // On défini ce qu'on va faire quand on aura la réponse
-        xhr.onreadystatechange = function () {
+      //  xhr.onreadystatechange = function () {
             // alert(xhr.readyState);
 // On ne fait quelque chose que si on a tout reçu et que le serveur est ok
-            if (xhr.readyState == 4 && xhr.status == 200) {
+         //   if (xhr.readyState == 4 && xhr.status == 200) {
 
 
 
-            }
-        }
+         //   }
+       // }
 
 
         xhr.open("POST", "winclosed.php", false);
