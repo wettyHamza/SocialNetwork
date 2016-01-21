@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+$id=$_SESSION['membre_id'];
 try
 {
 	$bdd = new PDO('mysql:host=localhost;dbname=sn;charset=utf8', 'root', '');
@@ -13,11 +14,14 @@ $tmpreload=time()-20;
 
 
 
-                        $req=$bdd->prepare('SELECT * FROM membre_online where statu=1 and timecnx>?');
-                        $req->execute(array($tmpreload) );
+                        $req=$bdd->prepare('SELECT * FROM membre_online where id <> ?');
+                        $req->execute(array($id));
+                        echo' <ul id="tagul" class="media-list">';
+             while( $row=$req->fetch()){
+               $statu=$row['statu'];
 
-                        while($row=$req->fetch())
-                        {
+                      if($statu==1){
+
 
                                   echo' <li class="media">';
 
@@ -34,6 +38,14 @@ $tmpreload=time()-20;
 
                                       echo'  </div>';
                                    echo' </li>';
-                                   }
+
+
+                                     }
+
+}
+                             echo'</ul>';
+
+
+
 
    ?>

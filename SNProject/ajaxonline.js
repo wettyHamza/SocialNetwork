@@ -26,8 +26,8 @@ setInterval(
                 // alert(xhr.readyState);
 // On ne fait quelque chose que si on a tout reçu et que le serveur est ok
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    var tmp = document.createElement("li");
-                    var di = document.getElementById('tagul').appendChild(tmp);
+                    //var tmp = document.createElement("ul");
+                   var di = document.getElementById('tagdiv');
                     //var d=document.getElementById('online_user')
                     di.innerHTML = xhr.responseText;
 

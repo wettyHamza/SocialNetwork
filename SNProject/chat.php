@@ -142,7 +142,7 @@ include('online.php');
             <div class="panel-heading">
                ONLINE USERS
             </div>
-            <div class="panel-body">
+            <div id='tagdiv' class="panel-body">
 
                 <ul id="tagul" class="media-list">
                         <?php
